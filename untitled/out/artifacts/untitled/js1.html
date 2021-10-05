@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <style>
+      *{
+          margin: 0;
+          padding: 0;
+          list-style: none;
+          outline: none;}
+          .banner{
+              width: 780px;
+              height: 463px;
+              margin: 13px auto 15px auto;
+              position: relative;
+              overflow: hidden;
+          }
+          .banner .banner_pic .pic{
+              display: none;
+      }
+          .banner .banner_pic .current{display: block;}
+          .banner ol{
+              position: absolute;
+              left: 370px;
+              top: 425px;
+          }
+          .banner ol .but{
+              float: left;
+              width: 20px;
+              height: 20px;
+              border: 1px solid #eee;
+              margin-right: 20px;
+          }
+          .banner ol li{cursor: pointer;}
+          .banner ol .current{
+              background: #fe0048;
+              float: left;
+              width: 20px;
+              height: 20px;
+              border: 1px solid #fe0048;
+              margin-right: 20px;
+          }
+  </style>
+    <script>
+        window.onload=function (){
+            var current_index=0;
+            var timer=window.setInterval(autoChange,2000);
+            var button_li=document.getElementById("button").getElementsByTagName("li");
+            var pic_div=document.getElementById("banner_pic").getElementsByTagName("div");
+            for(var i=0;i<button_li.length;i++){
+                button_li[i].onmouseover=function (){
+                    if(timer){
+                        clearInterval(timer);
+                    }
+                for(var j=0;j<pic_div.length;j++){
+                    if(button_li[j]===this){
+                        current_index=j;
+                    button_li[j].className="current";
+                    pic_div[j].className="current"
+                    ;}else{
+                        pic_div[j].className="pic";
+                        button_li[j].className="but";
+                    }
+                }
+            }
+            button_li[i].onmouseout=function (){
+                timer=setInterval(autoChange,5000);
+            }
+        }
+        function autoChange(){
+            ++current_index;
+            if(current_index===button_li.length){
+                current_index=0;
+            }
+            for(var i=0;i<button_li.length;i++){
+                if(i===current_index){
+                    button_li[i].className="current";
+                    pic_div[i].className="current";
+                }else{
+                    button_li[i].className="but";
+                    pic_div[i].className="pic";
+                }
+            }
+        }
+        }
+    </script>
+</head>
+<body>
+<div class="banner">
+    <div class="banner_pic" id="banner_pic">
+        <div class="current"><img src="1.jpg" alt=""/></div>
+        <div class="pic"><img src="2.jpg" alt=""/></div>
+        <div class="pic"><img src="3.jpg" alt=""/></div>
+    </div>
+    <ol id="button">
+        <li class="current"></li>
+        <li class="but"></li>
+        <li class="but"></li>
+    </ol>
+</div>
+</body>
+</html>
