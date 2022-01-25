@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>始终飞向鼠标的纸飞机</title>
+    <!-- 引入字体图标 -->
+    <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./index.css">
+</head>
+
+<body>
+    <span id="span"></span>
+    <span id="span1"></span>
+    <div id="plane">
+        <i class="fa fa-paper-plane"></i>
+    </div>
+    <script>
+        let plane=document.getElementById('plane');
+        let span=document.getElementById('span');
+        let span1=document.getElementById('span1');
+        let deg=0,ex=0,ey=0,vx=0,vy=0,count=0;
+        window.addEventListener('mousemove',(e)=>{
+            ex=e.x-plane.offsetLeft-plane.clientWidth/2;
+            ey=e.y-plane.offsetTop-plane.clientHeight/2;
+            span.innerText=ex+" "+ey+"plan"+plane.offsetLeft+" "+plane.offsetTop;
+            span1.innerText=count;
+            deg=360*Math.atan(ey/ex)/(2*Math.PI)+45;
+            if(ex<0){
+                deg+=180;
+            }
+            count=0;
+        })
+        function draw(){
+            plane.style.transform='rotate('+deg+'deg)';
+            if(count<100){
+                vx+=ex/100;
+                vy+=ey/100;
+            }
+            plane.style.left=vx+'px';
+            plane.style.top=vy+'px';
+            count++;
+        }
+        setInterval(draw, 1);
+        plane.addEventListener("mousedown",()=>{
+            plane.style.color="#005bea";
+        })
+        plane.addEventListener("mouseup",()=>{
+            plane.style.color="#fff";
+        })
+    </script>
+</body>
+
+</html>
