@@ -6,6 +6,8 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script src="http://pv.sohu.com/cityjson?ie=utf-8"></script>
     <style>
         body{
             display: flex;
@@ -58,9 +60,43 @@
                 border-radius: var(--sr);
             }
         }
+        #di{
+            position: absolute;
+            bottom: 0px;
+            right: 0px;
+        }
     </style>
 </head>
 <body>
 <a href="./纸飞机.html"><img src="a.png"></a><a href="./输入.html"><img src="b.jpg"></a>
+<div id="di" display="none">
+    <a v-show="false">{{getIP}}</a>
+    当前您的IP为：{{ip}}
+</div>
+<script>
+Vue.productionTips=false;
+        //简写：const fir={ date()..., template:'...' }}
+        //全局注册
+        // Vue.component("fir",fir)
+        new Vue({
+        el:'#di',
+        components:{
+        },
+        data: {
+            ip:"",
+            show:false
+        },
+        methods:{
+            showIP(){
+                console.log(this.ip);
+            }
+        },
+        computed:{
+            getIP(){
+            this.ip=returnCitySN['cip'].toString();
+            }
+        }
+    })
+</script>
 </body>
 </html>
