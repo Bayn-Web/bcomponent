@@ -1,0 +1,23 @@
+{
+  "name": "b_component",
+  "version": "1.0.0",
+  "description": "easy-work components for every hard-work obj",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vuepress dev docs --temp .temp",
+    "docs:build": "vuepress build docs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Bayn-Web/Bayn-Web.github.io.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Bayn-Web/Bayn-Web.github.io/issues"
+  },
+  "homepage": "https://github.com/Bayn-Web/Bayn-Web.github.io#readme",
+  "devDependencies": {
+    "vuepress": "^1.9.9"
+  }
+}
