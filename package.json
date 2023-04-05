@@ -20,5 +20,8 @@
   "homepage": "https://github.com/Bayn-Web/Bayn-Web.github.io#readme",
   "devDependencies": {
     "vuepress": "^1.9.9"
+  },
+  "engines": {
+    "node": "=16.15.0"
   }
 }
