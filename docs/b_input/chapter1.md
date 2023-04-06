@@ -2,10 +2,10 @@
 1. 默认插入
 
   <binput :needAnimation="false">默认插槽内容</binput>
-2. 默认插入
+2. 默认内容
   
-  <binput :value="'绑定value'">默认插槽内容</binput>
-3. 密码
+  <binput :inpvalue="'默认内容'">默认插槽内容</binput>
+3. 密码输入
   
   <binput :isPassword="true">默认插槽内容</binput>
 4. 输入校验(校验0到三位数字)
@@ -134,7 +134,7 @@ input:valid+label {
 
 |    props  |  描述 |类型    |默认|
 |  -------  | :---------: | :---: |:---: |
-|   value   |给input的值，注意双向绑定   |String|""    |
+|   inpvalue   |给input的值，注意双向绑定   |String|""    |
 |inppattern |如果有内容格式限制（input:invalid 不能限制输入,仅是抖动提示）,可以传递一个正则字符串|String/null|null|
 |isPassword |如果是密码（输入内容星号代替）| Boolean|false|
 
