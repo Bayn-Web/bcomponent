@@ -1,4 +1,5 @@
 import { defineConfig } from "vuepress/config";
+import path from "path"
 
 export default defineConfig({
   head: [
@@ -11,8 +12,8 @@ export default defineConfig({
         collapsable: false, // 可选的, 默认值是 true,
         sidebarDepth: 1,    // 可选的, 默认值是 1
         children: [
-          ['/b_input/chapter1',"登录输入框"],
-          ['/b_input/chapter2',"输入框"],
+          ['/b_input/chapter1', "登录输入框"],
+          ['/b_input/chapter2', "输入框"],
         ]
       },
       {
@@ -24,5 +25,13 @@ export default defineConfig({
         ]
       },
     ]
-  }
+  },
+  plugins: [
+    [
+      '@vuepress/plugin-register-components',
+      {
+        componentsDir: path.resolve(__dirname, './components')
+      }
+    ]
+  ]
 })
