@@ -1,6 +1,7 @@
 <template>
     <div class="inpbox">
-        <input id="comInp" class="shake" :type="inptype" required :value="props.value" :pattern="props.inppattern" /><label>
+        <input class="focus" ref="inp" @input="onInput" :type="inptype" required :value="props.inpvalue"
+            :pattern="props.inppattern" /><label>
             <slot></slot>
         </label>
     </div>
@@ -10,35 +11,42 @@
 import {
     reactive,
     ref,
-    onMounted
+    onMounted,
 } from 'vue';
+let f = defineEmits(["update:inpvalue"])
+const inp = ref(null)
+const onInput = function (e) {
+    f("update:inpvalue", e.target.value);
+}
 const props = defineProps({
-    value: {
+    inpvalue: {
         type: String,
-        default:""
+        default: ""
     },
     inppattern: {
         type: String,
-        default:null
+        default: null
     },
     isPassword: {
         type: Boolean,
-        default:false
-    },
-    needAnimation: {
-        type: Boolean,
-        default:false
+        default: false
     }
 })
 const inptype = ref("text")
 onMounted(() => {
     if (props.isPassword) {
         inptype.value = "password"
-    }    
-    if (props.inppattern!=null) {
-        let inp = document.getElementById("comInp")
-        inp.classList.remove("shake")
     }
+    inp.value.classList.remove("focus")
+    inp.value.addEventListener("input", () => {
+        if (inp.value.value != "") {
+            inp.value.classList.add("focus")
+            console.log(1)
+        } else {
+            inp.value.classList.remove("focus")
+            console.log(1)
+        }
+    })
 })
 </script>
 
@@ -46,6 +54,7 @@ onMounted(() => {
 .inpbox {
     height: fit-content;
 }
+
 input {
     outline: none;
     border: none;
@@ -60,7 +69,7 @@ input {
 label {
     position: relative;
     left: 0;
-    top: -33px;
+    top: -36px;
     color: #3d3d3d;
     font-weight: bolder;
     pointer-events: none;
@@ -74,9 +83,14 @@ input:valid+label {
     font-size: 12px;
 }
 
-.shake:invalid {
-    color: red;
-    caret-color: rgb(0, 0, 0);
+.focus:invalid~label {
+    top: -53px;
+    color: #a29bf6;
+    font-size: 12px;
+}
+
+.focus:invalid {
+    color: #ff0059;
     animation: 0.3s ease-in shake;
 }
 
