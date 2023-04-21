@@ -7,13 +7,13 @@ export default defineConfig({
   themeConfig: {
     sidebar: [
       {
-        title: 'input',   // 必要的
+        title: 'Part1. realComponent',   // 必要的
         path: '/b_input/',      // 可选的, 标题的跳转链接，应为绝对路径且必须存在
         collapsable: false, // 可选的, 默认值是 true,
         sidebarDepth: 1,    // 可选的, 默认值是 1
         children: [
           ['/b_input/chapter1', "登录输入框"],
-          ['/b_input/chapter2', "输入框"],
+          ['/b_input/chapter2', "触发第一次&&最后一次"],
         ]
       },
       {
