@@ -19,12 +19,16 @@
   },
   "homepage": "https://github.com/Bayn-Web/Bayn-Web.github.io#readme",
   "devDependencies": {
+    "@types/parallax-js": "^3.1.0",
     "vuepress": "^1.9.9"
   },
   "engines": {
     "node": "=16.15.0"
   },
   "dependencies": {
-    "@vuepress/plugin-register-components": "^1.9.9"
+    "@vuepress/plugin-register-components": "^1.9.9",
+    "parallax-js": "^3.1.0",
+    "typescript": "^5.0.4",
+    "vuepress-plugin-typescript": "^0.3.1"
   }
 }
