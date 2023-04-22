@@ -27,8 +27,8 @@ export default defineConfig({
         title: 'Part2. anmazing layout',   // 必要的
         path: '/b_layout/',      // 可选的, 标题的跳转链接，应为绝对路径且必须存在
         children: [
-          '/b_layout/parallax',
-          '/b_layout/chapter2',
+          ['/b_layout/parallax', "parallax库应用"],
+          ['/b_layout/chapter2', "chater2"],
         ]
       },
     ]
