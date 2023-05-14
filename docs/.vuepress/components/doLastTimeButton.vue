@@ -32,7 +32,7 @@ onMounted(() => {
     setInterval(() => {
         if (deg.value < 360) {
             deg.value += 1;
-            shader.value.style.background = `conic-gradient(from ${deg.value}deg, #7460ba, #fff 5deg 340deg, #7857ed)`;
+            document.getElementsByClassName("shader")[0].value.style.background = `conic-gradient(from ${deg.value}deg, #7460ba, #fff 5deg 340deg, #7857ed)`;
         }
         else deg.value = 0;
     }, 10)
