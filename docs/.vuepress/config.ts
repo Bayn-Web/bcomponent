@@ -21,6 +21,7 @@ export default defineConfig({
         children: [
           ['/b_Components/b_input', "登录输入框"],
           ['/b_Components/doLastORFirstAction', "触发第一次&&最后一次"],
+          ['/b_Components/sideMenu', "侧边菜单"],
         ]
       },
       {
@@ -28,7 +29,7 @@ export default defineConfig({
         path: '/b_layout/',      // 可选的, 标题的跳转链接，应为绝对路径且必须存在
         children: [
           ['/b_layout/parallax', "parallax库应用"],
-          ['/b_layout/chapter2', "chater2"],
+          ['/b_layout/scroll', "滑动至底部"],
         ]
       },
     ]
