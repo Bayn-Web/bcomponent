@@ -23,7 +23,7 @@
     "vuepress": "^1.9.9"
   },
   "engines": {
-    "node": "=16.15.0"
+    "node": "=8.5.5"
   },
   "dependencies": {
     "@vuepress/client": "^2.0.0-beta.12",
