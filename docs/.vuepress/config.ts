@@ -12,16 +12,17 @@ export default defineConfig({
     }
   },
   themeConfig: {
+    // sidebarDepth: 1,    // 可选的, 默认值是 1
     sidebar: [
       {
         title: 'Part1. realComponent',   // 必要的
         path: '/b_Components/',      // 可选的, 标题的跳转链接，应为绝对路径且必须存在
-        collapsable: false, // 可选的, 默认值是 true,
-        sidebarDepth: 1,    // 可选的, 默认值是 1
+        collapsable: true, // 是否可以折叠。默认为true。
         children: [
           ['/b_Components/b_input', "登录输入框"],
           ['/b_Components/doLastORFirstAction', "触发第一次&&最后一次"],
           ['/b_Components/sideMenu', "侧边菜单"],
+          ['/b_Components/contextMenu', "自定义右键菜单"],
         ]
       },
       {
