@@ -23,6 +23,7 @@ export default defineConfig({
           ['/b_Components/doLastORFirstAction', "触发第一次&&最后一次"],
           ['/b_Components/sideMenu', "侧边菜单"],
           ['/b_Components/contextMenu', "自定义右键菜单"],
+          ['/b_Components/banvas', "canvas自定义动画"],
         ]
       },
       {
