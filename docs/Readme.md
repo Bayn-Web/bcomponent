@@ -14,6 +14,6 @@
 1. [parallax](https://github.com/wagerfield/parallax)的应用
 2. 滑动到底部（屏幕滚动检测）
 ## 未来打算 ##
-不定期的会将遇到的有意思的组件加入到项目中，也欢迎大家提供[意见](1813148814@qq.com)。
+不定期的会将遇到的有意思的组件加入到项目中，也欢迎大家提供[意见](https://github.com/Bayn-Web)。
 ## BUG ##
 欢迎PR和Issue
