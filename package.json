@@ -4,10 +4,9 @@
   "description": "easy-work components for every hard-work obj",
   "main": "index.js",
   "scripts": {
-    "dev": "vuepress dev docs",
+    "dev": "SET NODE_OPTIONS=--openssl-legacy-provider && vuepress dev docs",
     "build": "vuepress build docs",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "SET NODE_OPTIONS=--openssl-legacy-provider && npm run dev"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
