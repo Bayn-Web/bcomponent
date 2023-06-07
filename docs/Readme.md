@@ -10,6 +10,7 @@
 3. 侧边菜单，这个侧边菜单更聚焦于一些时髦的个人网站
 4. 自定义右键菜单
 5. canvas api的简单使用
+6. switch按钮 以及 对用户浏览器摄像头和录音设备的简单操控
 ### 创意布局 ###
 1. [parallax](https://github.com/wagerfield/parallax)的应用
 2. 滑动到底部（屏幕滚动检测）
