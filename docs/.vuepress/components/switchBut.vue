@@ -4,26 +4,26 @@
         <input type="checkbox" @click="closeMediaPlayer($event)" id="sun_switch">
         <label for="sun_switch">
             <div class="switch">
-                <div class="light3"></div>
-                <div class="light2"></div>
-                <div class="light1"></div>
+                <div class="light light3"></div>
+                <div class="light light2"></div>
+                <div class="light light1"></div>
                 <div class="clouds-back">
-                    <div class="cloud7"></div>
-                    <div class="cloud6"></div>
-                    <div class="cloud5"></div>
-                    <div class="cloud4"></div>
-                    <div class="cloud3"></div>
-                    <div class="cloud2"></div>
-                    <div class="cloud1"></div>
+                    <div class="cloud cloud7"></div>
+                    <div class="cloud cloud6"></div>
+                    <div class="cloud cloud5"></div>
+                    <div class="cloud cloud4"></div>
+                    <div class="cloud cloud3"></div>
+                    <div class="cloud cloud2"></div>
+                    <div class="cloud cloud1"></div>
                 </div>
                 <div class="clouds-front">
-                    <div class="cloud7"></div>
-                    <div class="cloud6"></div>
-                    <div class="cloud5"></div>
-                    <div class="cloud4"></div>
-                    <div class="cloud3"></div>
-                    <div class="cloud2"></div>
-                    <div class="cloud1"></div>
+                    <div class="cloud cloud7"></div>
+                    <div class="cloud cloud6"></div>
+                    <div class="cloud cloud5"></div>
+                    <div class="cloud cloud4"></div>
+                    <div class="cloud cloud3"></div>
+                    <div class="cloud cloud2"></div>
+                    <div class="cloud cloud1"></div>
                 </div>
                 <div class="stars">
                     <div class="star star1"></div>
@@ -33,9 +33,9 @@
                     <div class="star star5"></div>
                 </div>
                 <div class="circle">
-                    <div class="moon_circle1"></div>
-                    <div class="moon_circle2"></div>
-                    <div class="moon_circle3"></div>
+                    <div class="moon_circle moon_circle1"></div>
+                    <div class="moon_circle moon_circle2"></div>
+                    <div class="moon_circle moon_circle3"></div>
                 </div>
             </div>
         </label>
@@ -110,37 +110,30 @@ label {
     transition: transform .25s ease-in-out;
 }
 
-.light1 {
+.ligth {
     position: absolute;
-    left: -49px;
-    top: -48px;
+    border-radius: 50%;
     width: 216px;
     height: 216px;
-    background: rgb(48, 145, 255);
-    border-radius: 50%;
     transition: transform .5s ease-in-out, all .5s ease-in-out;
+}
+
+.light1 {
+    left: -49px;
+    top: -48px;
+    background: rgb(48, 145, 255);
 }
 
 .light2 {
-    position: absolute;
     left: -6px;
     top: -50px;
-    width: 216px;
-    height: 216px;
     background: rgb(29, 130, 245);
-    border-radius: 50%;
-    transition: transform .5s ease-in-out, all .5s ease-in-out;
 }
 
 .light3 {
-    position: absolute;
     left: 38px;
     top: -44px;
-    width: 216px;
-    height: 216px;
     background: rgb(16, 116, 230);
-    border-radius: 50%;
-    transition: transform .5s ease-in-out, background .5s ease-in-out;
 }
 
 .clouds-front {
@@ -152,107 +145,87 @@ label {
     transform: translate(-10px, -15px);
 }
 
-.cloud1 {
+.cloud {
     position: absolute;
+    border-radius: 50%;
+    background: inherit;
+}
+
+.cloud1 {
     left: 13px;
     top: 95px;
     width: 65px;
     height: 65px;
-    border-radius: 50%;
-    background: inherit;
 }
 
 .cloud2 {
-    position: absolute;
     left: 71px;
     top: 95px;
     width: 51px;
     height: 51px;
-    border-radius: 50%;
-    background: inherit;
 }
 
 .cloud3 {
-    position: absolute;
     left: 115px;
     top: 73px;
     width: 76px;
     height: 76px;
-    border-radius: 50%;
-    background: inherit;
 }
 
 .cloud4 {
-    position: absolute;
     left: 174px;
     top: 90px;
     width: 76px;
     height: 76px;
-    border-radius: 50%;
-    background: inherit;
 }
 
 .cloud5 {
-    position: absolute;
     left: 201px;
     top: 70px;
     width: 72px;
     height: 68px;
-    border-radius: 50%;
-    background: inherit;
 }
 
 .cloud6 {
-    position: absolute;
     left: 252px;
     top: 36px;
     width: 136px;
     height: 136px;
-    border-radius: 50%;
-    background: inherit;
 }
 
 .cloud7 {
-    position: absolute;
     left: 278px;
     top: 0px;
     width: 136px;
     height: 136px;
+}
+
+.moon_circle {
+    position: absolute;
     border-radius: 50%;
-    background: inherit;
+    background: rgb(168, 168, 168);
+    box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.25);
 }
 
 .moon_circle1 {
-    position: absolute;
     left: 55px;
     top: 56px;
     width: 16px;
     height: 16px;
-    border-radius: 50%;
-    background: rgb(168, 168, 168);
-    box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.25);
 }
 
 .moon_circle2 {
-    position: absolute;
     left: 15px;
     top: 39px;
     width: 25px;
     height: 25px;
-    border-radius: 50%;
-    background: rgb(168, 168, 168);
-    box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.25);
 }
 
 .moon_circle3 {
-    position: absolute;
     left: 51px;
     top: 21px;
     width: 12px;
     height: 12px;
-    border-radius: 50%;
-    background: rgb(168, 168, 168);
-    box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.25);
 }
 
 #sun_switch:not(:checked)~* .moon_circle1,
@@ -300,7 +273,14 @@ label {
 }
 
 #sun_switch:not(:checked)~* .star {
-    display: none;
+    animation: rise forwards ease-out .5s;
+}
+
+@keyframes rise {
+    to {
+        transform: translateY(-100%);
+        opacity: 0%;
+    }
 }
 
 .star1 {
