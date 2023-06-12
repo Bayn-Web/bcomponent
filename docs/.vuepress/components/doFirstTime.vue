@@ -37,7 +37,7 @@ onMounted(() => {
     animation()
 })
 const animation = () => {
-    if (deg.value < 360) {
+    if (deg.value < 360 && shader.value) {
         deg.value += 1;
         shader.value.style.background = `conic-gradient(from ${deg.value}deg, #7460ba, #fff 5deg 340deg, #7857ed)`;
     }

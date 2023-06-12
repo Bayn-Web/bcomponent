@@ -50,11 +50,11 @@ const li = ref(null)
 //         e.style.animationDelay = `.${delayTime++}s`
 //     })
 // })
-// const addClass = (e) => {
-//     li.value && li.value.classList.remove("active")
-//     e.currentTarget.classList.add("active")
-//     li.value = e.currentTarget
-// }
+const addClass = (e) => {
+    li.value && li.value.classList.remove("active")
+    e.currentTarget.classList.add("active")
+    li.value = e.currentTarget
+}
 </script>
 
 <style scoped>
