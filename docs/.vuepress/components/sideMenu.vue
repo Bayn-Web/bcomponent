@@ -43,13 +43,13 @@
 <script setup>
 import { ref, onMounted } from 'vue';
 const li = ref(null)
-// onMounted(() => {
-//     let delayTime = 3;
-//     let spans = document.querySelectorAll("li>span");
-//     spans.forEach((e) => {
-//         e.style.animationDelay = `.${delayTime++}s`
-//     })
-// })
+onMounted(() => {
+    let delayTime = 3;
+    let spans = document.querySelectorAll(".container>nav>.list>li>span");
+    spans.forEach((e) => {
+        e.style.animationDelay = `.${delayTime++}s`
+    })
+})
 const addClass = (e) => {
     li.value && li.value.classList.remove("active")
     e.currentTarget.classList.add("active")
