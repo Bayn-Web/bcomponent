@@ -1,7 +1,7 @@
 <template>
     <div>
         <video :style="checked == true ? 'filter: grayscale(100%)' : ''" id="camera" ref="camera"></video>
-        <input type="checkbox" @click="closeMediaPlayer($event)" id="sun_switch">
+        <input ref="checkBox" v-model="checked" type="checkbox" id="sun_switch">
         <label for="sun_switch">
             <div class="switch">
                 <div class="light light3"></div>
@@ -42,29 +42,55 @@
     </div>
 </template>
 <script setup>
-import { onMounted, ref, onUnmounted, onBeforeUnmount } from 'vue';
+import { watch, onMounted, ref, onBeforeUnmount } from 'vue';
+const { liveTime, isDay } = defineProps({
+    liveTime: {
+        type: Boolean,
+        default: false
+    }, isDay: {
+        type: Boolean,
+        default: null
+    }
+})
 const camera = ref(null)
-const checked = ref(false);
+const checked = ref(null);
+const checkBox = ref(null);
 let mediastream = null;
 let tracks = null
 onMounted(async () => {
+    await startMeidaPlayer();
+    if (liveTime) {
+        switchStartByLiveTime();
+        return;
+    }
+    if (isDay != null) {
+        checked.value = !isDay
+    }
+    if (isDay == null && !liveTime) {
+        checked.value = true
+    }
+})
+const switchStartByLiveTime = () => {
+    let now_hour = (new Date()).getHours();
+    if (now_hour > 6 && now_hour < 18) {
+        //is day
+        checked.value = false;
+    } else {
+        //is night
+        checked.value = true;
+    }
+}
+watch(checked, (newV) => {
+    if (!newV) {
+        camera.value.play();
+    } else {
+        camera.value.pause();
+    }
+})
+const startMeidaPlayer = async () => {
     mediastream = await navigator.mediaDevices.getUserMedia({ audio: true, video: true })
     tracks = mediastream.getTracks();
-    console.log(camera.value)
-    let audioTrack = mediastream.getAudioTracks()[0];
-    console.log("user audio configeration:")
-    console.log(audioTrack)
-    let videoElement = camera.value;
-    videoElement.srcObject = mediastream;
-    videoElement.play();
-})
-const closeMediaPlayer = (event) => {
-    checked.value = !checked.value
-    if (event.currentTarget.checked) {
-        camera.value.pause();
-    } else {
-        camera.value.play();
-    }
+    camera.value.srcObject = mediastream;
 }
 onBeforeUnmount(() => {
     for (let track of tracks) {
