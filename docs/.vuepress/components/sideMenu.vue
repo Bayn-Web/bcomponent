@@ -43,21 +43,28 @@
 <script setup>
 import { ref, onMounted } from 'vue';
 const li = ref(null)
-onMounted(() => {
-    let delayTime = 3;
-    let spans = document.querySelectorAll("li>span");
-    spans.forEach((e) => {
-        e.style.animationDelay = `.${delayTime++}s`
-    })
-})
-const addClass = (e) => {
-    li.value && li.value.classList.remove("active")
-    e.currentTarget.classList.add("active")
-    li.value = e.currentTarget
-}
+// onMounted(() => {
+//     let delayTime = 3;
+//     let spans = document.querySelectorAll("li>span");
+//     spans.forEach((e) => {
+//         e.style.animationDelay = `.${delayTime++}s`
+//     })
+// })
+// const addClass = (e) => {
+//     li.value && li.value.classList.remove("active")
+//     e.currentTarget.classList.add("active")
+//     li.value = e.currentTarget
+// }
 </script>
 
 <style scoped>
+.container * {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
 .container {
     width: 100%;
     height: 40vh;
@@ -67,7 +74,7 @@ const addClass = (e) => {
     display: flex;
     align-items: start;
     justify-content: end;
-    z-index: 9;
+    z-index: 99;
 }
 
 .container nav {
