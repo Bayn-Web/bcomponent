@@ -24,6 +24,7 @@ export default defineConfig({
           ["/b_Components/contextMenu", "自定义右键菜单"],
           ["/b_Components/banvas", "canvas自定义动画"],
           ["/b_Components/switchButton", "switchDay&Night"],
+          ["/b_Components/slide_proof", "滑动验证"],
         ],
       },
       {
