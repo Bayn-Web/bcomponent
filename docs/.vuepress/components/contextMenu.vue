@@ -12,7 +12,7 @@
 </template>
 
 <script setup>
-import { onMounted, ref } from "vue"
+import { onMounted, ref, onBeforeUnmount } from "vue"
 const area = ref(null)
 const line1 = ref(null)
 const line2 = ref(null)
@@ -21,10 +21,12 @@ const stopDefaultBehavior = (e) => { e.preventDefault(); }
 onMounted(() => {
     area.value.addEventListener("contextmenu", stopDefaultBehavior)
 })
+onBeforeUnmount(() => {
+    area.value.removeEventListener("contextmenu", stopDefaultBehavior)
+})
 const undo = () => {
     area.value.removeEventListener("contextmenu", stopDefaultBehavior)
     lines.forEach((v) => {
-        console.log(v.value)
         v.value.innerText = "accessible".toUpperCase()
         v.value.style.background = "#7CFC00";
         v.value.style.color = "#fff";

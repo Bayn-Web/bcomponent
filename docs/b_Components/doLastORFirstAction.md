@@ -8,9 +8,11 @@
 
 ```html
 <template>
-  <label
-    >{{ count }}
-    <button @click="convertedFunc">click and i will do the last time</button>
+  <label style="position: relative;">
+    <div class="lbut" @click="convertedFunc">
+      {{ count }} click and i will do the last time
+    </div>
+    <div ref="shader" class="lshader"></div>
   </label>
 
   <label style="position: relative;">
@@ -23,7 +25,7 @@
 ```
 
 ```javascript
-import { reactive, ref, onMounted } from "vue";
+import { ref } from "vue";
 const count = ref(0);
 const shader = ref(null);
 let deg = ref(0);
@@ -40,16 +42,6 @@ const doClick = () => {
   count.value++;
 };
 const convertedFunc = doLastTimeFunc(doClick);
-onMounted(() => {
-  animation();
-});
-const animation = () => {
-  if (deg.value < 360) {
-    deg.value += 1;
-    shader.value.style.background = `conic-gradient(from ${deg.value}deg, #7460ba, #fff 5deg 340deg, #7857ed)`;
-  } else deg.value = 0;
-  requestAnimationFrame(animation);
-};
 ```
 
 ```javascript
@@ -85,6 +77,71 @@ const animation = () => {
   } else deg.value = 0;
   requestAnimationFrame(animation);
 };
+```
+
+```css
+/* vuepress背景模板 必须设置 否则zindex无法小于0 */
+.theme-default-content {
+  position: absolute;
+  z-index: -2;
+}
+
+label {
+  overflow: hidden;
+  display: block;
+  height: 34px;
+  width: 284px;
+  border-radius: 1em;
+}
+
+.lbut {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  width: 280px;
+  height: 30px;
+  margin-left: 2px;
+  margin-top: 2px;
+  font-weight: bolder;
+  background-color: black;
+  color: white;
+  border-radius: 1em;
+  cursor: pointer;
+}
+
+.lbut:hover {
+  background-color: white;
+  color: black;
+}
+
+.lshader {
+  position: absolute;
+  top: -142px;
+  left: -2px;
+  height: 300px;
+  width: 300px;
+  border-radius: 1em;
+  z-index: -1;
+  background: conic-gradient(
+    from 180deg at 50% 50%,
+    #00d1ff 0deg,
+    #ee27ff 106.88deg,
+    #205eff 206.25deg,
+    #00f0ff 286.87deg,
+    #00d1ff 360deg
+  );
+  animation: rotate 3s linear infinite;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
 ```
 
 ```css

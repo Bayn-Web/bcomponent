@@ -58,13 +58,6 @@ const addClass = (e) => {
 </script>
 
 <style scoped>
-* {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    box-sizing: border-box;
-}
-
 .container {
     width: 100%;
     height: 40vh;
@@ -168,6 +161,7 @@ nav .list i {
             #3c3e43,
             #838487);
     font-style: normal;
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }

@@ -1,16 +1,14 @@
 <template>
     <label style="position: relative;">
-        <div class="but" @click="convertedFunc">
+        <div class="lbut" @click="convertedFunc">
             {{ count }} click and i will do the last time</div>
-        <div ref="shader" class="shader"></div>
+        <div ref="shader" class="lshader"></div>
     </label>
 </template>
 
 <script setup>
 import {
-    reactive,
     ref,
-    onMounted
 } from 'vue';
 const count = ref(0);
 const shader = ref(null);
@@ -28,31 +26,31 @@ const doClick = () => {
     count.value++;
 }
 const convertedFunc = doLastTimeFunc(doClick)
-onMounted(() => {
-    animation()
-})
-const animation = () => {
-    if (deg.value < 360) {
-        deg.value += 1;
-        shader.value.style.background = `conic-gradient(from ${deg.value}deg, #7460ba, #fff 5deg 340deg, #7857ed)`;
-    }
-    else deg.value = 0;
-    requestAnimationFrame(animation)
-}
 </script>
 
 <style scoped>
+/* vuepress背景模板 必须设置 否则zindex无法小于0 */
 .theme-default-content {
     position: absolute;
     z-index: -2;
 }
 
-.but {
+label {
+    overflow: hidden;
+    display: block;
+    height: 34px;
+    width: 284px;
+    border-radius: 1em;
+}
+
+.lbut {
     display: flex;
     justify-content: center;
     position: relative;
     width: 280px;
     height: 30px;
+    margin-left: 2px;
+    margin-top: 2px;
     font-weight: bolder;
     background-color: black;
     color: white;
@@ -60,18 +58,30 @@ const animation = () => {
     cursor: pointer;
 }
 
-.but:hover {
+.lbut:hover {
     background-color: white;
     color: black;
 }
 
-.shader {
+.lshader {
     position: absolute;
-    top: -2px;
+    top: -142px;
     left: -2px;
-    height: 34px;
-    width: 284px;
+    height: 300px;
+    width: 300px;
     border-radius: 1em;
     z-index: -1;
+    background: conic-gradient(from 180deg at 50% 50%, #00D1FF 0deg, #EE27FF 106.88deg, #205EFF 206.25deg, #00F0FF 286.87deg, #00D1FF 360deg);
+    animation: rotate 3s linear infinite;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
 }
 </style>
