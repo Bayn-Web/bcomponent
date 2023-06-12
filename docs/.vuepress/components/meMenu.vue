@@ -47,6 +47,11 @@ const animation = () => {
 </script>
 
 <style scoped>
+.theme-default-content {
+    position: absolute;
+    z-index: -2;
+}
+
 .but {
     display: flex;
     justify-content: center;
@@ -73,12 +78,5 @@ const animation = () => {
     width: 284px;
     border-radius: 1em;
     z-index: -1;
-}
-</style>
-
-<style>
-.theme-default-content {
-    position: absolute;
-    z-index: -2;
 }
 </style>

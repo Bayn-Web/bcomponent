@@ -1,18 +1,13 @@
 ## 效果图
 
 1. 默认插入
-   <client-only>
    <binput :needAnimation="false">默认插槽内容</binput>
-   </client-only>
 2. 默认内容
-
-   <client-only>
-<binput :inpvalue="'默认内容'">默认插槽内容</binput> 3. 密码输入
-   </client-only>
-
-<binput :isPassword="true">默认插槽内容</binput> 4. 输入校验(校验 0 到三位数字)
-
-<binput :inppattern="'[0-9]{0,3}'">默认插槽内容</binput>
+   <binput :inpvalue="'默认内容'">默认插槽内容</binput>
+3. 密码输入
+   <binput :isPassword="true">默认插槽内容</binput>
+4. 输入校验(校验 0 到三位数字)
+   <binput :inppattern="'[0-9]{0,3}'">默认插槽内容</binput>
 
 ## 代码
 

@@ -29,12 +29,6 @@ const convertedFunc = doLastTimeFunc(doClick)
 </script>
 
 <style scoped>
-/* vuepress背景模板 必须设置 否则zindex无法小于0 */
-.theme-default-content {
-    position: absolute;
-    z-index: -2;
-}
-
 label {
     overflow: hidden;
     display: block;
