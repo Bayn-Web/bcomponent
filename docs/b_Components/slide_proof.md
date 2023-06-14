@@ -1,6 +1,6 @@
 ## 效果图
 
-<slideProof></slideProof>
+<ClientOnly><slideProof></slideProof></ClientOnly>
 
 ## 代码
 

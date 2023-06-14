@@ -1,10 +1,10 @@
 <template>
-    <label style="position: relative;">
+    <div style="position: relative;">
         <div class="but" @click="convertedFunc">
             {{ count }} click and i will do the first time
         </div>
         <div ref="shader" class="shader"></div>
-    </label>
+    </div>
 </template>
 
 <script setup>
@@ -32,11 +32,11 @@ const doFirstTimeFunc = (func, time = 2000) => {
 const doClick = () => {
     count.value++;
 }
-const convertedFunc = doFirstTimeFunc(doClick)
+let convertedFunc = doFirstTimeFunc(doClick)
 onMounted(() => {
     animation()
 })
-const animation = () => {
+let animation = () => {
     if (deg.value < 360 && shader.value) {
         deg.value += 1;
         shader.value.style.background = `conic-gradient(from ${deg.value}deg, #7460ba, #fff 5deg 340deg, #7857ed)`;
@@ -44,6 +44,7 @@ const animation = () => {
     else deg.value = 0;
     requestAnimationFrame(animation)
 }
+
 </script>
 
 <style scoped>
@@ -58,6 +59,7 @@ const animation = () => {
     color: white;
     border-radius: 1em;
     cursor: pointer;
+    z-index: 1;
 }
 
 .but:hover {
@@ -72,13 +74,5 @@ const animation = () => {
     height: 34px;
     width: 284px;
     border-radius: 1em;
-    z-index: -1;
-}
-</style>
-
-<style>
-.theme-default-content {
-    position: absolute;
-    z-index: -2;
 }
 </style>

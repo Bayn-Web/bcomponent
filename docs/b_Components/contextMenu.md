@@ -1,6 +1,6 @@
 ## 效果图 ##
 
-  <contextMenu></contextMenu>
+  <ClientOnly><contextMenu></contextMenu></ClientOnly>
 
 ## 代码 ##
 ```html

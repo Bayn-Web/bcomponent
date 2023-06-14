@@ -11,7 +11,8 @@ export default defineConfig({
     },
   },
   themeConfig: {
-    // sidebarDepth: 1,    // 可选的, 默认值是 1
+    // sidebarDepth: 0,    // 可选的, 默认值是 1
+    lastUpdated:false,
     sidebar: [
       {
         title: "Part1. realComponent", // 必要的
@@ -19,7 +20,8 @@ export default defineConfig({
         collapsable: true, // 是否可以折叠。默认为true。
         children: [
           ["/b_Components/b_input", "登录输入框"],
-          ["/b_Components/doLastORFirstAction", "触发第一次&&最后一次"],
+          ["/b_Components/doFirst", "触发第一次"],
+          ["/b_Components/doLast", "触发最后一次"],
           ["/b_Components/sideMenu", "侧边菜单"],
           ["/b_Components/contextMenu", "自定义右键菜单"],
           ["/b_Components/banvas", "canvas自定义动画"],

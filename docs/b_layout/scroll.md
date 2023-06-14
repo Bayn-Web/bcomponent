@@ -1,6 +1,6 @@
 ## 效果图 ##
 
-<scroll></scroll>
+<ClientOnly><scroll></scroll></ClientOnly>
 
 ## 代码 ##
 ```html

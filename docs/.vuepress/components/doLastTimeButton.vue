@@ -12,7 +12,6 @@ import {
 } from 'vue';
 const count = ref(0);
 const shader = ref(null);
-let deg = ref(0);
 const doLastTimeFunc = (func, time = 2000) => {
     let n = null
     return () => {
@@ -50,6 +49,7 @@ label {
     color: white;
     border-radius: 1em;
     cursor: pointer;
+    z-index: 1;
 }
 
 .lbut:hover {
@@ -64,7 +64,6 @@ label {
     height: 300px;
     width: 300px;
     border-radius: 1em;
-    z-index: -1;
     background: conic-gradient(from 180deg at 50% 50%, #00D1FF 0deg, #EE27FF 106.88deg, #205EFF 206.25deg, #00F0FF 286.87deg, #00D1FF 360deg);
     animation: rotate 3s linear infinite;
 }

@@ -1,6 +1,6 @@
 ## 效果图
 
-<switchBut></switchBut>
+<ClientOnly><switchBut></switchBut></ClientOnly>
 
 ## 代码
 

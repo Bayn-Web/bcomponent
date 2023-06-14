@@ -58,31 +58,23 @@ const addClass = (e) => {
 </script>
 
 <style scoped>
-.container * {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    box-sizing: border-box;
-}
-
 .container {
-    width: 100%;
-    height: 40vh;
+    width: fit-content;
+    height: fit-content;
     position: fixed;
     top: 60px;
-    right: 10px;
+    right: 0;
     display: flex;
     align-items: start;
     justify-content: end;
-    z-index: 99;
+    z-index: 1;
 }
 
 .container nav {
     overflow-x: hidden;
-    width: 80px;
+    width: 40px;
     height: min-content;
-    padding: 16px;
-    padding-bottom: 8px;
+    padding: 5px 16px;
     border-radius: 12px;
     backdrop-filter: blur(18px);
     background: rgba(230, 235, 240, .7);
@@ -91,7 +83,7 @@ const addClass = (e) => {
     transition: .6s cubic-bezier(.8, .5, .5, .8);
 }
 
-.container nav:hover {
+.container:hover nav {
     width: 200px;
 }
 
@@ -99,6 +91,7 @@ const addClass = (e) => {
     width: 100%;
     display: flex;
     align-items: center;
+    justify-content: start;
 }
 
 .brand img {
@@ -109,17 +102,20 @@ const addClass = (e) => {
 
 .brand p {
     color: #505257;
+    font-size: 10px;
     font-weight: 500;
     font-style: italic;
     text-align: left;
     line-height: 22px;
-    margin-left: 4px
+    margin-left: 4px;
+    box-sizing: inherit;
+    opacity: 0;
 }
 
 .brand p span {
     color: #3c3e43;
     display: block;
-    font-size: 26px;
+    font-size: 20px;
     font-style: normal;
 }
 
@@ -133,10 +129,16 @@ nav .line {
 
 nav .list {
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    margin-left: -20px;
 }
 
 nav .list li {
     display: flex;
+    width: 60%;
     margin: 10px 0;
     padding: 5px 9px;
     cursor: pointer;

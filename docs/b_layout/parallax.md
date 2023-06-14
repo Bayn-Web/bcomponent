@@ -1,6 +1,6 @@
 ## 效果图 ##
 
-<parallax></parallax>
+<ClientOnly><parallax></parallax></ClientOnly>
 
 ## 代码 ##
 ```html

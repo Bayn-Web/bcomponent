@@ -1,6 +1,6 @@
 <template>
     <div class="inpbox">
-        <input class="focus" ref="inp" @input="onInput" :type="inptype" required :value="props.inpvalue"
+        <input class="focus" ref="inp" @input="onInput($event)" :type="inptype" required :value="props.inpvalue"
             :pattern="props.inppattern" /><label>
             <slot></slot>
         </label>
@@ -9,7 +9,6 @@
 
 <script setup>
 import {
-    reactive,
     ref,
     onMounted,
 } from 'vue';
@@ -41,10 +40,8 @@ onMounted(() => {
     inp.value.addEventListener("input", () => {
         if (inp.value.value != "") {
             inp.value.classList.add("focus")
-            console.log(1)
         } else {
             inp.value.classList.remove("focus")
-            console.log(1)
         }
     })
 })
