@@ -1,43 +1,41 @@
 <template>
-    <div class="container">
-        <nav>
-            <div class="brand">
-                <img src="../public/profile.jpg">
-                <p>
-                    Good day,
-                    <span>Hossein</span>
-                </p>
-            </div>
+    <nav>
+        <div class="brand">
+            <img src="../public/profile.jpg">
+            <p>
+                Good day,
+                <span>Hossein</span>
+            </p>
+        </div>
+        <hr class="line">
+        <ul class="list">
+            <li @click="addClass($event)" ref="li" class="active">
+                <i>🏠</i>
+                <span>Dashboard</span>
+            </li>
+            <li @click="addClass($event)">
+                <i>💰</i>
+                <span>Accounts</span>
+            </li>
+            <li @click="addClass($event)">
+                <i>🛒</i>
+                <span>Orders</span>
+            </li>
+            <li @click="addClass($event)">
+                <i>📊</i>
+                <span>Charts</span>
+            </li>
+            <li @click="addClass($event)">
+                <i>🎉</i>
+                <span>Support</span>
+            </li>
             <hr class="line">
-            <ul class="list">
-                <li @click="addClass($event)" ref="li" class="active">
-                    <i>🏠</i>
-                    <span>Dashboard</span>
-                </li>
-                <li @click="addClass($event)">
-                    <i>💰</i>
-                    <span>Accounts</span>
-                </li>
-                <li @click="addClass($event)">
-                    <i>🛒</i>
-                    <span>Orders</span>
-                </li>
-                <li @click="addClass($event)">
-                    <i>📊</i>
-                    <span>Charts</span>
-                </li>
-                <li @click="addClass($event)">
-                    <i>🎉</i>
-                    <span>Support</span>
-                </li>
-                <hr class="line">
-                <li @click="addClass($event)">
-                    <i>🎈</i>
-                    <span>Logout</span>
-                </li>
-            </ul>
-        </nav>
-    </div>
+            <li @click="addClass($event)">
+                <i>🎈</i>
+                <span>Logout</span>
+            </li>
+        </ul>
+    </nav>
 </template>
 
 <script setup>
@@ -58,8 +56,8 @@ const addClass = (e) => {
 </script>
 
 <style scoped>
-.container {
-    width: fit-content;
+nav {
+    width: 40px;
     height: fit-content;
     position: fixed;
     top: 60px;
@@ -67,13 +65,9 @@ const addClass = (e) => {
     display: flex;
     align-items: start;
     justify-content: end;
-    z-index: 1;
-}
-
-.container nav {
+    flex-direction: column;
+    z-index: 2;
     overflow-x: hidden;
-    width: 40px;
-    height: min-content;
     padding: 5px 16px;
     border-radius: 12px;
     backdrop-filter: blur(18px);
@@ -83,8 +77,12 @@ const addClass = (e) => {
     transition: .6s cubic-bezier(.8, .5, .5, .8);
 }
 
-.container:hover nav {
+nav:hover {
     width: 200px;
+}
+
+nav:hover ul li {
+    width: 90%;
 }
 
 .brand {
@@ -122,7 +120,7 @@ const addClass = (e) => {
 nav .line {
     width: 100%;
     height: 2px;
-    margin: 10px 0;
+    margin: 5px 0;
     border-radius: 30%;
     background: #87a3af;
 }
@@ -139,8 +137,8 @@ nav .list {
 nav .list li {
     display: flex;
     width: 60%;
-    margin: 10px 0;
-    padding: 5px 9px;
+    margin: 5px 0;
+    padding: 5px 12px;
     cursor: pointer;
     border-radius: 8px;
     transition: .4s ease-in-out;
@@ -189,14 +187,6 @@ nav .list span {
     transform: translateX(20px);
 }
 
-@keyframes fadeIn {
-    to {
-        opacity: 1;
-        pointer-events: unset;
-        transform: translateX(0);
-    }
-}
-
 nav:hover .brand p {
     animation: fadeIn .4s ease-out forwards;
     animation-delay: .4s;
@@ -204,5 +194,13 @@ nav:hover .brand p {
 
 nav:hover .list span {
     animation: fadeIn .3s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        pointer-events: unset;
+        transform: translateX(0);
+    }
 }
 </style>
