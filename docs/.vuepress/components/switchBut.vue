@@ -26,11 +26,11 @@
                     <div class="cloud cloud1"></div>
                 </div>
                 <div class="stars">
-                    <div class="star star1"></div>
-                    <div class="star star2"></div>
-                    <div class="star star3"></div>
-                    <div class="star star4"></div>
-                    <div class="star star5"></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
                 </div>
                 <div class="circle">
                     <div class="moon_circle moon_circle1"></div>
@@ -69,7 +69,17 @@ onMounted(async () => {
     if (isDay == null && !liveTime) {
         checked.value = true
     }
+    randomPlaceStars()
 })
+const randomPlaceStars = () => {
+    const stars = document.querySelectorAll(".switch>.stars>div")
+    console.log(stars)
+    stars.forEach((e) => {
+        e.classList.add("star");
+        e.style.top = Math.floor(Math.random() * 80) - 40 + "px";
+        e.style.left = Math.floor(Math.random() * 180) + "px";
+    })
+}
 const switchStartByLiveTime = () => {
     let now_hour = (new Date()).getHours();
     if (now_hour > 6 && now_hour < 18) {
@@ -84,6 +94,7 @@ watch(checked, (newV) => {
     if (!newV) {
         camera.value.play();
     } else {
+        randomPlaceStars()
         camera.value.pause();
     }
 })
@@ -307,30 +318,5 @@ label {
         transform: translateY(-100%);
         opacity: 0%;
     }
-}
-
-.star1 {
-    top: 50px;
-    left: 50px;
-}
-
-.star2 {
-    top: 20px;
-    left: 30px;
-}
-
-.star3 {
-    top: 20px;
-    left: 120px;
-}
-
-.star4 {
-    top: -15px;
-    left: 150px;
-}
-
-.star5 {
-    top: -55px;
-    left: 135px;
 }
 </style>
