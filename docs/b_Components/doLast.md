@@ -12,6 +12,27 @@
 
 - 一个小知识：如果使用`setTimeout或Interval`在设置的时间间隔过小时会产生 js 来不及找到 dom 的 bug，这个 bug 大致原因是操作 dom 时下一个操作又要进入，因此最好使用`requestAnimationFrame`这个新的 api，这个 api 会自动寻找下一次渲染时机，因此所有由数值控制的移动，例如鼠标动画，或循环动画应该都由这个 api 接管，这样可以保证动画的流畅。注意这个 api 大致每秒执行 60 次，因此不必担心流畅程度，只需要控制好数值来让动画尽量以合适速度进行。
 
+## 如何减缓`requestAnimationFrame`执行速度
+
+这个函数的执行速度很快，但有时候需要减缓执行，可以使用下面的封装
+
+```js
+function doNextFrame(callback, gapTimes = 1) {
+  let last = Date.now(); // 最后一次执行时刻 ms
+  let now = null; //现在 ms
+  const interval = (1000 / 60) * gapTimes; // 时间间隔，ms
+  draw();
+  function draw() {
+    requestAnimationFrame(draw);
+    now = Date.now();
+    if (now - last >= interval - 1000 / 120) {
+      last = now;
+      callback();
+    }
+  }
+}
+```
+
 ## BUG
 
 如果发现 bug 或者其他需求可以联系作者

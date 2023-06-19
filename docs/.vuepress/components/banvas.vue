@@ -22,6 +22,7 @@ const color = ref('#cdcdcd')
 const drawable = ref(true)
 onMounted(() => {
     ctx.value = canvasDom.value.getContext('2d');
+    ctx.scale(scale, scale);
     rePicCanvas(width.value, height.value, color.value)
     watch(drawable, (newV) => {
         console.log(newV)

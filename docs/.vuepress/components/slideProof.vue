@@ -23,11 +23,15 @@ onMounted(() => {
     const ctx2 = canvas2.value.getContext("2d");
     img.value.onload = () => {
         ctx1.drawImage(img.value, 0, 0, 300, 200);
-        ctx2.drawImage(img.value, startPathX * -1, startPathY * -1, 300, 200);
         draw(ctx1, () => {
             ctx1.fillStyle = '#63eae6';
             ctx1.fill();
         }, startPathX, startPathY);
+        draw(ctx2, () => {
+            ctx2.clip();
+            ctx2.fill();
+        }, 0, 0);
+        ctx2.drawImage(img.value, startPathX * -1, startPathY * -1, 300, 200);
     }
     range.value.addEventListener("mouseup", () => {
         isAct = false

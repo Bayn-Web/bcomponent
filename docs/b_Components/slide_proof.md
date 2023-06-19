@@ -9,6 +9,7 @@
 ## 简述
 
 简单实现了滑动验证，也是对 canvas 的再一次学习。
+canvasContext.clip()对画布进行剪切，这个 api 用于需要透明的部分。
 
 ## BUG
 

@@ -34,7 +34,7 @@ const doClick = () => {
 }
 let convertedFunc = doFirstTimeFunc(doClick)
 onMounted(() => {
-    animation()
+    doNextFrame(animation, 2)
 })
 let animation = () => {
     if (deg.value < 360 && shader.value) {
@@ -42,9 +42,21 @@ let animation = () => {
         shader.value.style.background = `conic-gradient(from ${deg.value}deg, #7460ba, #fff 5deg 340deg, #7857ed)`;
     }
     else deg.value = 0;
-    requestAnimationFrame(animation)
 }
-
+function doNextFrame(callback, gapTimes = 1) {
+    let last = Date.now(); // 最后一次执行时刻 ms
+    let now = null; //现在 ms
+    const interval = (1000 / 60) * gapTimes; // 时间间隔，ms
+    draw();
+    function draw() {
+        requestAnimationFrame(draw);
+        now = Date.now();
+        if (now - last >= interval - 1000 / 120) {
+            last = now;
+            callback();
+        }
+    }
+}
 </script>
 
 <style scoped>
