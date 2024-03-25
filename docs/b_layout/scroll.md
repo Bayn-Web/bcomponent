@@ -4,7 +4,7 @@
 
 ## 代码
 
-<<< @/docs/.vuepress/components/parallax.vue
+<<< @/docs/.vuepress/components/scroll.vue
 
 ## 步骤
 
