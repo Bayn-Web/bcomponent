@@ -22,6 +22,7 @@ export default defineConfig({
           ["/b_Components/b_input", "登录输入框"],
           ["/b_Components/doFirst", "触发第一次"],
           ["/b_Components/doLast", "触发最后一次"],
+          ["/b_Components/useHudini", "使用Houdini简化js动画"],
           ["/b_Components/sideMenu", "侧边菜单"],
           ["/b_Components/contextMenu", "自定义右键菜单"],
           ["/b_Components/banvas", "canvas自定义动画"],
